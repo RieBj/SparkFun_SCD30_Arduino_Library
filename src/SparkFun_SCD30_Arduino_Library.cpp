@@ -39,7 +39,7 @@ boolean SCD30::begin(TwoWire &wirePort)
 
   //We expect caller to begin their I2C port, with the speed of their choice external to the library
   //But if they forget, we start the hardware here.
-  _i2cPort->begin();
+  _i2cPort->begin(4,5);
   
   /* Especially during obtaining the ACK BIT after a byte sent the SCD30 is using clock stretching  (but NOT only there)!
    * The need for clock stretching is described in the Sensirion_CO2_Sensors_SCD30_Interface_Description.pdf
